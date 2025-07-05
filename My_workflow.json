@@ -1,0 +1,53 @@
+{
+  "name": "My workflow",
+  "nodes": [
+    {
+      "parameters": {
+        "pollTimes": {
+          "item": [
+            {
+              "mode": "everyMinute"
+            }
+          ]
+        },
+        "simple": false,
+        "filters": {
+          "labelIds": ["INBOX"],
+          "q": "Subject: Daily sales IN"
+        },
+        "options": {
+          "downloadAttachments": true
+        }
+      },
+      "type": "n8n-nodes-base.gmailTrigger",
+      "typeVersion": 1.2,
+      "position": [0, 0],
+      "id": "0bb2036a-6308-4821-9999-5849f26a5cce",
+      "name": "Gmail Trigger",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "REDACTED_GMAIL_ID",
+          "name": "Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        ...
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [420, 20],
+      "id": "9aed4ace-8976-48b8-9317-30725d6a7fdc",
+      "name": "Insert rows in a table",
+      "credentials": {
+        "postgres": {
+          "id": "REDACTED_POSTGRES_ID",
+          "name": "Postgres account"
+        }
+      }
+    },
+    ...
+  ],
+  ...
+}
